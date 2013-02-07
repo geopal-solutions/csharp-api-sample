@@ -1,16 +1,8 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="GeopalJobSample/GeopalClient.cs">
-    <Files>
-      <File FileName="GeopalJobSample/Main.cs" Line="280" Column="1" />
-      <File FileName="GeopalJobSample/GeopalModels.cs" Line="280" Column="1" />
-      <File FileName="GeopalJobSample/GeopalClient.cs" Line="132" Column="1" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/sean/Documents/MonoProjects/GeopalJobSample/GeopalJobSample/GeopalClient.cs" line="56" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

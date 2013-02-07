@@ -217,10 +217,10 @@ namespace GeopalJobSample
 		 **/
 		private static void ReadJobsDateRange ()
 		{
-			Console.WriteLine ("Please enter a from date (yyyy-MM-dd hh:mm:ss) see http://msdn.microsoft.com/en-us/library/8kb3ddd4.aspx");
+			Console.WriteLine ("Please enter a from date (yyyy-MM-dd HH:mm:ss) see http://msdn.microsoft.com/en-us/library/8kb3ddd4.aspx");
 			string dateTimeFrom = Console.ReadLine ();
 			dateTimeFrom = HttpUtility.UrlEncode(dateTimeFrom);
-			Console.WriteLine ("Please enter a to date (yyyy-MM-dd hh:mm:ss)");
+			Console.WriteLine ("Please enter a to date (yyyy-MM-dd HH:mm:ss)");
 			string dateTimeTo = Console.ReadLine ();
 			dateTimeTo = HttpUtility.UrlEncode(dateTimeTo);
 			GeopalClient geopalClient = new GeopalClient ("api/jobsearch/ids");
