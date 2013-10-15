@@ -36,7 +36,12 @@ namespace GeopalJobSample
 	{
 		public IEnumerable<Employee> employees { get; set; }
 	}
-	
+
+
+	public class GeopalRequestEmployeesShifts : GeopalRequest
+	{
+		public IEnumerable<Shift> shifts { get; set; }
+	}
 
 	public class Company
 	{
@@ -274,6 +279,18 @@ namespace GeopalJobSample
 		public string updated_on { get; set; }
 		public string created_on { get; set; }
 		public string updated_at { get; set; }
+	}
+
+
+	public class Shift
+	{
+		public string employee_id { get; set; }
+		public string employee_name { get; set; }
+		public string start_on { get; set; }
+		public string start_address { get; set; }
+		public string stop_on { get; set; }
+		public string stop_address { get; set; }
+		public string duration { get; set; }
 	}
 }
 

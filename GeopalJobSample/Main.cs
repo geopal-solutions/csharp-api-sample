@@ -40,6 +40,7 @@ namespace GeopalJobSample
 				Console.WriteLine ("Read Jobs Between Date Rage: 5");
 				Console.WriteLine ("List Employees: 6");
 				Console.WriteLine ("List Employees, but convert json output to xml: 7");
+				Console.WriteLine ("Read Employees Shifts Between Date Rage: 8");
 				Console.WriteLine ("Please Choose");
 
 				choice = ReadInt();
@@ -66,6 +67,9 @@ namespace GeopalJobSample
 				case 7:
 					var doConver2Xml = true;
 					ListEmployess(doConver2Xml);
+					break;
+				case 8:
+					ReadInEmployeeShiftsDateRange();
 					break;
 				default:
 					Console.WriteLine ("Invalid Choice");
@@ -231,6 +235,30 @@ namespace GeopalJobSample
 			foreach (JobJustId jobJustId in geopalRequestJobIds.jobs) {
 				Console.WriteLine("Job Id: " + jobJustId.id);
 				ReadAJob(jobJustId.id);
+			}
+		}
+
+
+		/**
+		 * Reads in employee shifts via date range, matches on shift start date time
+		 */
+		private static void ReadInEmployeeShiftsDateRange ()
+		{
+			Console.WriteLine ("Please enter a from date (yyyy-MM-dd HH:mm:ss) see http://msdn.microsoft.com/en-us/library/8kb3ddd4.aspx");
+			string dateTimeFrom = Console.ReadLine ();
+			dateTimeFrom = HttpUtility.UrlEncode(dateTimeFrom);
+			Console.WriteLine ("Please enter a to date (yyyy-MM-dd HH:mm:ss)");
+			string dateTimeTo = Console.ReadLine ();
+			dateTimeTo = HttpUtility.UrlEncode(dateTimeTo);
+			GeopalClient geopalClient = new GeopalClient ("api/employees/shifts");
+			geopalClient.setEmployeeId (employeeId);
+			geopalClient.setPrivateKey (privateKey);
+			String response = geopalClient.get ("date_time_from=" + dateTimeFrom + "&date_time_to=" + dateTimeTo);
+			GeopalRequestEmployeesShifts geopalRequestEmployeesShifts = JsonConvert.DeserializeObject<GeopalRequestEmployeesShifts> (response);
+			foreach (Shift shift in geopalRequestEmployeesShifts.shifts) {
+				Console.WriteLine("Employee Id: " + shift.employee_id);
+				Console.WriteLine("Start Date: " + shift.start_on);
+				Console.WriteLine("Shift Duration: " + shift.duration);
 			}
 		}
 
